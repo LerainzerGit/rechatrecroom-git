@@ -13,45 +13,80 @@
           <div class="brand-mark">R</div>
           <div>
             <div class="brand-name">ReChat Git</div>
-            <div class="brand-subtitle">Static Git interface for Pages</div>
+            <div class="brand-subtitle">2019 RecRoom Revival</div>
           </div>
         </div>
 
-        <div class="search-wrap">
-          <label class="sr-only" for="repo-input">Repository</label>
-          <input id="repo-input" type="text" value="LerainzerGit/rechatrecroom-git" />
-          <button id="load-btn">Load</button>
+        <div class="actions-top">
+          <button id="new-repo-btn" class="btn-action">+ New Repo</button>
         </div>
       </header>
 
       <main class="layout">
         <aside class="sidebar panel">
-          <div class="panel-header">Project</div>
-          <div id="repo-card" class="repo-card">
-            <div class="repo-name loading">Loading…</div>
-            <div class="repo-desc loading">Loading repo metadata…</div>
+          <div class="panel-header">Repositories</div>
+          <div id="repos-list" class="repos-list">
+            <div class="empty-state">No repositories yet</div>
           </div>
-
-          <div class="stats" id="stats"></div>
         </aside>
 
         <section class="main panel">
-          <div class="panel-header row">
-            <span>Repository browser</span>
-            <span id="branch-pill" class="pill">main</span>
+          <div id="repo-view" class="repo-view" style="display: none;">
+            <div class="panel-header row">
+              <span id="repo-title">Repository</span>
+              <span id="branch-pill" class="pill">main</span>
+            </div>
+
+            <div id="repo-content">
+              <div id="repo-card" class="repo-card">
+                <div class="repo-name loading">Loading…</div>
+                <div class="repo-desc loading">Loading repo metadata…</div>
+              </div>
+
+              <div class="stats" id="stats"></div>
+
+              <div class="section-header">Files</div>
+              <div id="tree" class="tree"></div>
+
+              <div class="section-header">Recent Commits</div>
+              <div id="commits" class="commits"></div>
+            </div>
           </div>
 
-          <div id="tree" class="tree"></div>
+          <div id="empty-view" class="empty-view">
+            <div class="empty-icon">📦</div>
+            <div class="empty-title">No Repository Selected</div>
+            <div class="empty-desc">Create a new repository or select one from the sidebar to get started.</div>
+            <button id="empty-new-btn" class="btn-primary">Create Repository</button>
+          </div>
         </section>
       </main>
+    </div>
 
-      <section class="panel panel-lower">
-        <div class="panel-header row">
-          <span>Recent commits</span>
-          <a id="repo-link" href="#" target="_blank" rel="noreferrer">Open on GitHub</a>
+    <!-- Modal: New Repository -->
+    <div id="modal-new-repo" class="modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Create New Repository</h2>
+          <button class="modal-close" id="close-modal">&times;</button>
         </div>
-        <div id="commits" class="commits"></div>
-      </section>
+        <div class="modal-body">
+          <label for="repo-name-input">Repository Name</label>
+          <input id="repo-name-input" type="text" placeholder="my-rechat-project" />
+
+          <label for="repo-desc-input">Description</label>
+          <textarea id="repo-desc-input" placeholder="A ReChat project..."></textarea>
+
+          <label for="repo-private-check">
+            <input id="repo-private-check" type="checkbox" />
+            Private Repository
+          </label>
+        </div>
+        <div class="modal-footer">
+          <button id="cancel-btn" class="btn-secondary">Cancel</button>
+          <button id="create-btn" class="btn-primary">Create</button>
+        </div>
+      </div>
     </div>
 
     <script src="app.js"></script>
