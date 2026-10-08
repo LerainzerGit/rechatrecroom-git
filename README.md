@@ -1,26 +1,30 @@
 # ReChat Git
 
-This repository contains a lightweight static Git browser designed for GitHub Pages. It is a custom interface inspired by the idea of a minimal "Gitea/GitLab-lite" experience, while staying compatible with GitHub Pages' static hosting limitations.
+A lightweight static Git repository manager for ReChat, the 2019 RecRoom Revival project. Built for GitHub Pages with local repository management.
 
-Features:
-- repository card with metadata
-- quick stats panel
-- repository tree rendering
-- recent commit history
-- repo switcher input
-- GitHub Pages-ready static deployment
+## Features
 
-Important note:
-GitHub Pages cannot host a server-side Git service like the real Gitea or GitLab backend. This project is a front-end UI that reads repo data from the GitHub API and renders it as a custom ReChat Git portal.
+- Create and manage local repositories
+- View repository details, files, and commit history
+- Built-in localStorage persistence
+- Clean, modern UI inspired by Gitea/GitLab
+- Fully static – runs entirely in the browser
 
-Files:
-- `index.html` — main UI
-- `styles.css` — theme and layout
-- `app.js` — GitHub API data loading
-- `.github/workflows/pages.yml` — GitHub Pages deployment
+## Repository Management
 
-To deploy:
-1. Push these files to the `main` branch.
-2. Go to GitHub repo Settings → Pages.
-3. Select GitHub Actions as the source.
-4. The workflow will deploy the site.
+All repositories are stored in your browser's localStorage. Create new repositories with:
+- Repository name
+- Description
+- Privacy setting (Public/Private)
+- Auto-initialized with initial commit
+
+## Deployment
+
+1. Push these files to your `main` branch
+2. Enable GitHub Pages in repository Settings
+3. Select GitHub Actions as the source
+4. Visit your Pages URL
+
+## Local Usage
+
+Simply open `index.html` in a browser to start creating and managing ReChat repositories.
